@@ -3,7 +3,7 @@ import React, { useState , useEffect } from "react"
 export const LocationContext = React.createContext()
 
 export const LocationProvider = (props) => {
-    const [location , setLocations] = useState([])
+    const [locations , setLocations] = useState([])
 
     const getLocations = () => {
         return fetch ("http://localhost:8088/locations")

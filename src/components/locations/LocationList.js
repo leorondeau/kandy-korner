@@ -9,6 +9,10 @@ export const LocationList = () => {
 
     useEffect(() => {
         getLocations()
+    }, [])
+
+    useEffect(() => {
+        
     }, [locations])
 
     return (

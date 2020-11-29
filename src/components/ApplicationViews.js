@@ -2,6 +2,8 @@ import React from "react"
 // import { Route } from "react-router-dom"
 import { LocationProvider } from "./locations/LocationProvider"
 import { LocationList } from "./locations/LocationList"
+import { ProductProvider} from "./product/ProductProvider"
+import { ProductList } from "./product/ProductList"
 
 export const ApplicationViews = (props) => {
     return (
@@ -13,6 +15,10 @@ export const ApplicationViews = (props) => {
                     <LocationList />
                 {/* </Route> */}
             </LocationProvider>
+
+            <ProductProvider>
+                <ProductList />
+            </ProductProvider>
             </>
             )
         }
