@@ -6,7 +6,7 @@ export const ProductTypeContext = React.createContext()
 export const ProductTypeProvider = (props) => {
     const [productTypes, setProductTypes] = useState([])
     // console.log("props In Provider" , props)
-    console.log("setProductTypes" , setProductTypes)
+    // console.log("setProductTypes" , setProductTypes)
 
     const getProductTypes = () => {
         return fetch ("http://localhost:8088/productTypes")
@@ -27,7 +27,7 @@ export const ProductTypeProvider = (props) => {
 }
 
 // console.log("props.children In Provider" , props.children)
-console.log("productsTypes in ProductProvider" , productTypes)
+// console.log("productsTypes in ProductProvider" , productTypes)
 return (
     <ProductTypeContext.Provider value = {{
         productTypes , addProductType , getProductTypes

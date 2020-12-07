@@ -31,7 +31,7 @@ export const ProductList = () => {
             {   
                 products.map(pro => {
                     const productTypeObj = productTypes.find(pt => pro.productTypeId === pt.id)  
-                    console.log("productTypeObj" , productTypeObj)
+                    // console.log("productTypeObj" , productTypeObj)
                 // debugger
                return <Product key={pro.id}  
                                productType={productTypeObj}
