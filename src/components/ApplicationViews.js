@@ -5,6 +5,11 @@ import { LocationList } from "./locations/LocationList"
 import { ProductProvider } from "./product/ProductProvider"
 import { ProductList } from "./product/ProductList"
 import { ProductTypeProvider } from "./product/ProductTypeProvider"
+import { EmployeeProvider } from "./employees/EmployeeProvider"
+import { EmployeeForm } from "./employees/EmployeeForm"
+import { EmployeeList } from "./employees/EmployeeList"
+import { EmployeeDetail } from "./employees/EmployeeDetail"
+
 
 export const ApplicationViews = (props) => {
     return (
@@ -24,6 +29,26 @@ export const ApplicationViews = (props) => {
                     </Route>
                 </ProductTypeProvider>
             </ProductProvider>
+            <EmployeeProvider>
+                <LocationProvider>
+                    <Route exact path="/employees" render={
+                        props => <EmployeeList {...props} />
+                    } />
+
+                    <Route path="/employees/:employeeId(\d+)" render={
+                        props => <EmployeeDetail {...props} />
+                    } />
+                    <Route exact path="/employees/create" render={
+                        props => <EmployeeForm {...props} />
+                    } />
+
+                    <Route path="/employees/edit/:employeeId(\d+)" render={
+                        props => <EmployeeForm {...props} />
+                    } />
+
+
+                </LocationProvider>
+            </EmployeeProvider>
         </>
     )
 }
