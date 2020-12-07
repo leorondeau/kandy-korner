@@ -10,7 +10,7 @@ export const EmployeeForm = (props) => {
     const { locations , getLocations } = useContext(LocationContext)
 
     const [ employee, setEmployee] = useState({})
-console.log("employee" , employee)
+// console.log("employee" , employee)
     const editMode = props.match.params.hasOwnProperty("employeeId")
 
     const handleControlledInputChange = (event) => {
@@ -38,32 +38,33 @@ console.log("employee" , employee)
     },[employees])
 
     const constructNewEmployee = () => {
+        const name = employee.name
         const locationId = parseInt(employee.locationId)
         const manager = employee.manager
         const fullTime = employee.fullTime
         const hourlyRate = employee.hourlyRate
 
-        if(locationId == 0 ) {
+        if(locationId == 0 || name === "" || manager === 0 || fullTime === 0 || hourlyRate === "" ) {
             window.alert("Please fill out all fields")
         } else {
             if(editMode) {
                 updateEmployee({
                     id: employee.id,
                     name: employee.name,
-                    locationId: locationId,
-                    manager: manager,
-                    fullTime: fullTime,
-                    hourlyRate: hourlyRate
+                    locationId,
+                    manager,
+                    fullTime,
+                    hourlyRate
                     
                 })
                 .then(() => props.history.push("/employees"))
             } else {
                 addEmployee({
                     name: employee.name,
-                    locationId: locationId,
-                    manager: manager,
-                    fullTime: fullTime,
-                    hourlyRate: hourlyRate
+                    locationId,
+                    manager,
+                    fullTime,
+                    hourlyRate
                 })
                 .then(() => props.history.push("/employees"))
             }
