@@ -7,6 +7,7 @@ export const Product = ({ product , productType }) => (
         <h3 className="product__name">{product.name}</h3>
         <div className="product__price">Price: {product.price} </div>
         <div className="product__TypeId">{productType.type}</div>
+        <button></button>
     </section>
 )
 // console.log("product in Product" , product)
